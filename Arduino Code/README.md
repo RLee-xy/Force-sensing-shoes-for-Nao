@@ -8,3 +8,5 @@ Circuit connection for load cell: https://www.amazon.com/Amplifier-Breakout-Conv
 
 Load cell calibration: https://www.youtube.com/watch?v=nGUpzwEa4vg
 
+Arduino Wireless Network with Multiple NRF24L01 Modules(Bluetooth): https://www.youtube.com/watch?v=xb7psLhKTMA and
+https://howtomechatronics.com/tutorials/arduino/how-to-build-an-arduino-wireless-network-with-multiple-nrf24l01-modules/
