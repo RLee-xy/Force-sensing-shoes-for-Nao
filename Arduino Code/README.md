@@ -59,9 +59,11 @@ Here is an example:
 
 (1) The original Arduino code:
 
+![image](https://github.com/RLee-xy/Force-sensing-shoes-for-Nao/blob/main/docs/figures/figure2.png)
+
 (2) Code after modifying:
 
-
+![image](https://github.com/RLee-xy/Force-sensing-shoes-for-Nao/blob/main/docs/figures/figure3.png)
 
 Notice that the Baud rate for rosserial_python serial_node.py /dev/ttyACM0 is 57600, so we need to set our print rate in Arduino to be 57600: ‘Serial.begin(57600);’
 
