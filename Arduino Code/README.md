@@ -59,59 +59,7 @@ Here is an example:
 
 (2) Code after modifying:
 
-#include<ros.h>
-#include<my_package/sensor.h>
- 
-const int TrigPin = 2; 
-const int EchoPin = 3; 
-const int BodyPin = 7;
-int resistance;
-bool body;
-float distance; 
- 
-ros::NodeHandle nh;  
-  
-my_package::sensor sensor_msg;  
-ros::Publisher pub("sensor", &sensor_msg); 
- 
-void setup() {
- 
-  nh.initNode();  
-  nh.advertise(pub);
-  
-  Serial.begin(57600); 
-  pinMode(TrigPin, OUTPUT); 
-  pinMode(EchoPin, INPUT); 
-  Serial.println("Ultrasonic and dianweiji: ");
-}
- 
-void loop() {
-  digitalWrite(TrigPin, LOW); 
-  delayMicroseconds(2); 
-  digitalWrite(TrigPin, HIGH); 
-  delayMicroseconds(10);
-  digitalWrite(TrigPin, LOW); 
- 
-  distance = pulseIn(EchoPin, HIGH) / 58.00; 
-  Serial.print("distance: "); 
-  Serial.print(distance); 
-  Serial.print("cm  "); 
-  
-  resistance = analogRead(A0);
-  Serial.print("resistance: "); 
-  Serial.print(resistance);
- 
-  body = digitalRead(BodyPin);
-  Serial.print("  body: ");
-  Serial.println(body);
- 
-  sensor_msg.distance = distance;
-  sensor_msg.resistance = resistance;
-  sensor_msg.body = body;
- 
-  pub.publish(&sensor_msg);
-  nh.spinOnce();
-  delay(1000);
+
 
 Notice that the Baud rate for rosserial_python serial_node.py /dev/ttyACM0 is 57600, so we need to set our print rate in Arduino to be 57600: ‘Serial.begin(57600);’
 
