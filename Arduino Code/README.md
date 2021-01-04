@@ -13,3 +13,44 @@ Load cell calibration: https://www.youtube.com/watch?v=nGUpzwEa4vg
 Arduino Wireless Network with Multiple NRF24L01 Modules(Bluetooth): https://www.youtube.com/watch?v=xb7psLhKTMA and
 https://howtomechatronics.com/tutorials/arduino/how-to-build-an-arduino-wireless-network-with-multiple-nrf24l01-modules/
 
+# How to read Arduino’s data through ROS
+
+1.Use rosserial_arduino to connect ROS and Arduino:
+How to use rosserial_arduino can be seen in:
+http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup
+
+2. Define your own data type in rosserial_arduino:
+In our project, we use Arduino to control four force sensors, whose date type are float32. 
+(1)In order to read the sensor’s data, first, we need to create our own data type ‘Sensor.msg’ in ‘～/catkin_ws/src/my_package/msg/’ and write the code below into ‘Sensor.msg’ :
+ 
+If you do not have a ‘my_package’ file, you can create one, following the instructions in :
+http://wiki.ros.org/ROS/Tutorials/CreatingPackage 
+and:
+http://wiki.ros.org/ROS/Tutorials/BuildingPackages
+(2) Second, we need to modify the ‘Cmakelist.txt’ and ‘package.xml’ files in ‘my_package’, in order to using the ‘Sensor.msg’.
+You can follow the instructions in:
+http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv 
+After modifying, ‘Cmakelist.txt’ and ‘package.xml’ files should be look like this:
+
+Then we go back to ‘～/catkin_ws/’ and run ‘catkin_make’. After compiling, you can find a ‘Sensor.h’ file in ‘～/catkin_ws/devel/include/my_package/’. You can test your msg file by running:
+‘rosmsg show my_package/Sensor’
+(3) After creating our own data type file, we need to rebuild the ‘ros_lib’ library for Arduino IDE, just follow the instructions here:
+http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup
+You should be able to see ‘Sensor.h’ file in ‘～/Arduino/libraries/ros_lib/my_package/’
+
+3.Next, we need to modify our Arduino code to use the rosserial_aduino:
+(1) The original Arduino code:
+
+(2) Code after modifying:
+Notice that the Baud rate for rosserial_python serial_node.py /dev/ttyACM0 is 57600, so we need to set our print rate in Arduino to be 57600: ‘Serial.begin(57600);’
+
+4.Test:
+(1) Let’s upload the code to Arduino by running:
+
+‘rosrun rosserial_python serial_node.py /dev/ttyACM0’ (Do not forget to run ‘roscore’ first)
+(2) Then we shall be able to see our topic ‘Sensor’ and read sensors’ date through ROS by running:
+rostopic list
+rostopic echo sensor
+
+Reference:
+https://blog.csdn.net/wanzew/article/details/80040570
