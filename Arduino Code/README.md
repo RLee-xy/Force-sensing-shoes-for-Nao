@@ -15,11 +15,11 @@ https://howtomechatronics.com/tutorials/arduino/how-to-build-an-arduino-wireless
 
 # How to read Arduino’s data through ROS
 
-1.Use rosserial_arduino to connect ROS and Arduino:
+## 1.Use rosserial_arduino to connect ROS and Arduino:
 How to use rosserial_arduino can be seen in:
 http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup
 
-2. Define your own data type in rosserial_arduino:
+## 2. Define your own data type in rosserial_arduino:
 In our project, we use Arduino to control four force sensors, whose date type are float32. 
 (1)In order to read the sensor’s data, first, we need to create our own data type ‘Sensor.msg’ in ‘～/catkin_ws/src/my_package/msg/’ and write the code below into ‘Sensor.msg’ :
  
@@ -38,13 +38,13 @@ Then we go back to ‘～/catkin_ws/’ and run ‘catkin_make’. After compili
 http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup
 You should be able to see ‘Sensor.h’ file in ‘～/Arduino/libraries/ros_lib/my_package/’
 
-3.Next, we need to modify our Arduino code to use the rosserial_aduino:
+## 3.Next, we need to modify our Arduino code to use the rosserial_aduino:
 (1) The original Arduino code:
 
 (2) Code after modifying:
 Notice that the Baud rate for rosserial_python serial_node.py /dev/ttyACM0 is 57600, so we need to set our print rate in Arduino to be 57600: ‘Serial.begin(57600);’
 
-4.Test:
+## 4.Test:
 (1) Let’s upload the code to Arduino by running:
 
 ‘rosrun rosserial_python serial_node.py /dev/ttyACM0’ (Do not forget to run ‘roscore’ first)
