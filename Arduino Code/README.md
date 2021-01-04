@@ -53,6 +53,8 @@ You should be able to see ‘Sensor.h’ file in ‘～/Arduino/libraries/ros_li
 
 ## 3.Next, we need to modify our Arduino code to use the rosserial_aduino:
 
+Here is an example:
+
 (1) The original Arduino code:
 
 (2) Code after modifying:
