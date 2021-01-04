@@ -25,7 +25,7 @@ In our project, we use Arduino to control four force sensors, whose date type ar
 
 (1)In order to read the sensor’s data, first, we need to create our own data type ‘Sensor.msg’ in ‘～/catkin_ws/src/my_package/msg/’ and write the code below into ‘Sensor.msg’ :
 
-![image](https://https://github.com/RLee-xy/Force-sensing-shoes-for-Nao/tree/main/docs/figures/figure1.jpg)
+![image](https://github.com/RLee-xy/Force-sensing-shoes-for-Nao/blob/main/docs/figures/figure1.jpg)
  
 If you do not have a ‘my_package’ file, you can create one, following the instructions in :
 
