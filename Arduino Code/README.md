@@ -54,15 +54,9 @@ http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup
 
 You should be able to see ‘Sensor.h’ file in ‘～/Arduino/libraries/ros_lib/my_package/’
 
-## 3.Next, we need to modify our Arduino code to use the rosserial_aduino:
+## 3.Next, we need develop code for rosserial_arduino:
 
-Here is an example:
-
-(1) The original Arduino code:
-
-![image](https://github.com/RLee-xy/Force-sensing-shoes-for-Nao/blob/main/docs/figures/figure2.png)
-
-(2) Code after modifying:
+Code is developed as follows:
 
 ![image](https://github.com/RLee-xy/Force-sensing-shoes-for-Nao/blob/main/docs/figures/figure3.png)
 
