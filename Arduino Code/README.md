@@ -76,7 +76,3 @@ Notice that the Baud rate for rosserial_python serial_node.py /dev/ttyACM0 is 57
 (2) Then we shall be able to see our topic ‘Sensor’ and read sensors’ date through ROS by running:
 rostopic list
 rostopic echo sensor
-
-### Reference:
-
-https://blog.csdn.net/wanzew/article/details/80040570
